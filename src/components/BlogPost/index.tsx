@@ -5,10 +5,18 @@ const Container = styled.div`
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
-  box-shadow:
-    10px 10px 30px #d9d9d9,
-    -10px -10px 30px #ffffff;
-  max-width: 800px;
+  box-shadow: 10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
+  width: 800px;
+
+  @media (max-width: 768px) { // 태블릿 사이즈
+    width: 600px;
+  }
+
+  @media (max-width: 576px) { // 모바일 사이즈
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+  }
 `;
 
 const Title = styled.div`
