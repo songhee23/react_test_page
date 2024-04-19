@@ -20,27 +20,27 @@ const Container = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Thumbnail = styled.div`
   font-weight: bold;
   margin-bottom: 10px;
 `;
 
-const Body = styled.div`
+const Site = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 `;
 
 interface Props {
-  readonly title: string;
-  readonly body: string;
+  readonly thumbnail: string;
+  readonly site: string;
 }
 
-export const BlogPost = ({ title, body }: Props) => {
+export const BlogPost = ({ thumbnail, site }: Props) => {
   return (
     <Container>
-      <Title>{title}</Title>
-      <Body>{body}</Body>
+      <Thumbnail>{thumbnail}</Thumbnail>
+      <Site>{site}</Site>
     </Container>
   );
 };

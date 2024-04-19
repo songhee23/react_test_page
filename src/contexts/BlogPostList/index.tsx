@@ -23,8 +23,8 @@ interface Props {
 interface Post {
   readonly id: number;
   readonly userId: number;
-  readonly title: string;
-  readonly body: string;
+  readonly thumbnail: string;
+  readonly site: string;
 }
 
 const PostListContextProvider = ({ children }: Props) => {

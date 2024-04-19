@@ -65,13 +65,13 @@ interface Props {
 
 export const Form = ({ onClose }: Props) => {
   const { onAdd } = useContext(PostListContext);
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
+  const [site, setSite] = useState('');
 
   const registerPost = () => {
-    if (title === '' || body === '') return;
+    if (thumbnail === '' || site === '') return;
     onAdd({
-      id:0, userId:0, title: title, body:body
+      id:0, userId:0, thumbnail: thumbnail, site:site
     })   
     if (typeof onClose === 'function') onClose();
   };
@@ -80,14 +80,14 @@ export const Form = ({ onClose }: Props) => {
     <Container>
       <Background />
       <Contents>
-        <Title>블로그 글 등록</Title>
+        <Title>글 등록</Title>
         <InputGroup>
-          <Label>Title: </Label>
-          <Input value={title} onChange={(e) => setTitle(e.target.value)}/>
+          <Label>Thumbnail: </Label>
+          <Input value={thumbnail} onChange={(e) => setThumbnail(e.target.value)}/>
         </InputGroup>
         <InputGroup>
-          <Label>Body: </Label>
-          <Input value={body} onChange={(e) => setBody(e.target.value)}/>
+          <Label>Site: </Label>
+          <Input value={site} onChange={(e) => setSite(e.target.value)}/>
         </InputGroup>
         <Actions>
           <Button label="등록하기" onClick={registerPost} />

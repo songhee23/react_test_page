@@ -16,7 +16,7 @@ export const BlogPostList = () => {
     return (
       <Container> 
         {reversedPostList.map((post) => (
-          <BlogPost key={post.id} title={post.title} body={post.body}/>
+          <BlogPost key={post.id} thumbnail={post.thumbnail} site={post.site}/>
         ))}
       </Container>
     );
