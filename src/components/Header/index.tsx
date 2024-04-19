@@ -15,7 +15,7 @@ const Title = styled.div`
 export const Header = () => {
   return (
     <Container>
-      <Title>블로그 포스트</Title>
+      <Title>Nuzz</Title>
     </Container>
   );
 };
