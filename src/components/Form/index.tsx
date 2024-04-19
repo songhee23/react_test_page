@@ -73,6 +73,7 @@ export const Form = ({ onClose }: Props) => {
     onAdd({
       id:0, userId:0, title: title, body:body
     })   
+    if (typeof onClose === 'function') onClose();
   };
 
   return (

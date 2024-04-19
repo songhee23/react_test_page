@@ -10,12 +10,13 @@ const Container = styled.div`
 
   @media (max-width: 768px) { // 태블릿 사이즈
     width: 600px;
+    margin: 10px;
   }
 
   @media (max-width: 576px) { // 모바일 사이즈
     width: 90%;
     padding: 10px;
-    margin: 10px;
+    margin: 10px auto; /* 수평 가운데 정렬을 위해 margin을 auto로 설정 */
   }
 `;
 
