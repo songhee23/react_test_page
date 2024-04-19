@@ -24,13 +24,6 @@ const ButtonContainer = styled.div`
   bottom: 40px;
 `;
 
-interface Post {
-  readonly id: number;
-  readonly userId: number;
-  readonly title: string;
-  readonly body: string;
-}
-
 function App() {
   /*const [posts, setPosts] = useState<ReadonlyArray<Post>>([]);*/
   
@@ -45,16 +38,16 @@ function App() {
   }, []);*/
 
   return (
-    <Container>
-      <PostListContextProvider>
+    <PostListContextProvider>
+      <Container>
         <Header />
         <BlogPostList />
         <ButtonContainer>
           <Button label="등록" onClick={() => setShowForm(true)} />
         </ButtonContainer>
-      </PostListContextProvider>
-      {showForm && <Form onClose={() => setShowForm(false)} />}
-    </Container>
+        {showForm && <Form onClose={() => setShowForm(false)} />}
+      </Container>
+    </PostListContextProvider>
   );
 }
 

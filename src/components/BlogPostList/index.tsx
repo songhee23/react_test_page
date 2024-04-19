@@ -10,7 +10,7 @@ const Container = styled.div`
 
 export const BlogPostList = () => {
     const { postList } = useContext(PostListContext);
-    console.log(postList);
+    // console.log(postList);
     
     return (
       <Container> 

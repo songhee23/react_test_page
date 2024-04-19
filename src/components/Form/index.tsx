@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { Button } from 'components/Button';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { PostListContext } from 'contexts/BlogPostList';
 
 const Container = styled.div`
   position: absolute;
@@ -63,33 +64,16 @@ interface Props {
 }
 
 export const Form = ({ onClose }: Props) => {
+  const { onAdd } = useContext(PostListContext);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
   const registerPost = () => {
     if (title === '' || body === '') return;
-
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: JSON.stringify({
-        userId: 1,
-        title,
-        body,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        if (typeof onClose === 'function') onClose();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    onAdd({
+      id:0, userId:0, title: title, body:body
+    })   
   };
-
 
   return (
     <Container>

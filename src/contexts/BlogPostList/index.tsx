@@ -28,20 +28,21 @@ interface Post {
 }
 
 const PostListContextProvider = ({ children }: Props) => {
-  const [postList, setPostList] =  useState<ReadonlyArray<Post>>(mockPosts);
+  const [postList, setPostList] =  useState<ReadonlyArray<Post>>([]);
 
-  console.log("PostListContextProvider rendering"); // Check if this logs
-/*
+  //console.log("PostListContextProvider rendering"); // Check if this logs
+
   useEffect(() => {
-    console.log("Loading posts:", mockPosts); // Check if posts are loaded
+    // console.log("Loading posts:", mockPosts); // Check if posts are loaded
     setPostList(mockPosts);
   }, []); // 빈 의존성 배열을 전달하여 컴포넌트 마운트 시 한 번만 실행되도록 함
-*/
+
   const onDelete = (post: Post) => {
     setPostList(postList.filter((item) => item !== post));
   };
 
   const onAdd = (post: Post) => {
+    // console.log("onAdd", post)
     setPostList([...postList, post]);
   };
 
