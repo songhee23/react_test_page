@@ -6,6 +6,8 @@ import { BlogPost } from 'components/BlogPost';
 import { useState, useEffect } from 'react';
 import { Button } from 'components/Button';
 import { Form } from 'components/Form'
+import { BlogPostList } from 'components/BlogPostList'
+import { PostListContextProvider } from 'contexts/BlogPostList';
 
 const Container = styled.div`
   height: 100vh;
@@ -30,27 +32,27 @@ interface Post {
 }
 
 function App() {
-  const [posts, setPosts] = useState<ReadonlyArray<Post>>([]);
+  /*const [posts, setPosts] = useState<ReadonlyArray<Post>>([]);*/
+  
   const [showForm, setShowForm] = useState(false);
-
-  useEffect(() => {
+  /*useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then((response) => response.json())
       .then((json) => setPosts(json))
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, []);*/
 
   return (
     <Container>
-      <Header />
-      {posts.map((post) => (
-        <BlogPost key={post.id} title={post.title} body={post.body} />
-      ))}
-      <ButtonContainer>
-        <Button label="등록" onClick={() => setShowForm(true)} />
-      </ButtonContainer>
+      <PostListContextProvider>
+        <Header />
+        <BlogPostList />
+        <ButtonContainer>
+          <Button label="등록" onClick={() => setShowForm(true)} />
+        </ButtonContainer>
+      </PostListContextProvider>
       {showForm && <Form onClose={() => setShowForm(false)} />}
     </Container>
   );
