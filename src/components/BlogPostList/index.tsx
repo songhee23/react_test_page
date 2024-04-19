@@ -11,10 +11,11 @@ const Container = styled.div`
 export const BlogPostList = () => {
     const { postList } = useContext(PostListContext);
     // console.log(postList);
-    
+    // 역순으로 리스트를 보여주기 위해 reverse() 함수 사용
+    const reversedPostList = [...postList].reverse();
     return (
       <Container> 
-        {postList.map((post) => (
+        {reversedPostList.map((post) => (
           <BlogPost key={post.id} title={post.title} body={post.body}/>
         ))}
       </Container>
